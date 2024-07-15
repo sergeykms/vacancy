@@ -1,0 +1,12 @@
+@import "bootstrap.min.css";
+@import "fonts/stylesheet.css";
+
+:root {
+    --mainFontFamily: Verona, Arial, sans-serif;
+    --navigateFontFamily: "Cormorant Infant", Arial, sans-serif;
+}
+
+html {
+    font-family: var(--mainFontFamily), sans-serif;
+    font-size: 16px;
+}
