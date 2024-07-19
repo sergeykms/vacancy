@@ -6,4 +6,8 @@
     <p style="font-family: var(--navigateFontFamily),sans-serif}}">
         this job pays {{ $vacancy['salary'] }} per year
     </p>
+    <h2 style="font-family: var(--navigateFontFamily),sans-serif; margin: .5rem 0;">Employer:</h2>
+    <p style="font-family: var(--navigateFontFamily),sans-serif}}">
+        {{ $vacancy->employer->name }}
+    </p>
 </x-layout>
