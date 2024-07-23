@@ -17,4 +17,9 @@ class Vacancy extends Model
         return $this->belongsTo(Employer::class);
     }
 
+    public function tags(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class, 'tag_vacancy', 'vacancy_id', 'tag_id');
+    }
+
 }
