@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/vacancies', function () {
-    $vacancies = Vacancy::with('employer')->get();
+    $vacancies = Vacancy::with('employer')->paginate(5);
 //    $vacancies = Vacancy::all();
 
     return view('vacancies', [

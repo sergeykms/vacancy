@@ -16,5 +16,11 @@
             </a>
 
         @endforeach
+
+<div>{{ $vacancies->links() }}</div>
+
+
+
+
     </div>
 </x-layout>
