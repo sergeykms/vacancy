@@ -8,18 +8,40 @@ Route::get('/', function () {
 });
 
 Route::get('/vacancies', function () {
-    $vacancies = Vacancy::with('employer')->paginate(5);
+    $vacancies = Vacancy::with('employer')->latest()->paginate(5);
 //    $vacancies = Vacancy::all();
 
-    return view('vacancies', [
+    return view('vacancies.index', [
         'vacancies' => $vacancies
     ]);
 });
 
-Route::get('/vacancies/{id}', function ($id) {
+Route::get('/vacancies/create', function () {
+    return view('/vacancies/create');
+});
 
+Route::get('/vacancies/{id}', function ($id) {
     $vacancy = Vacancy::find($id);
-    return view('vacancy', ['vacancy' => $vacancy]);
+    return view('vacancies.show', ['vacancy' => $vacancy]);
+});
+
+Route::post('/vacancies', function () {
+    request()->validate([
+        'title' => ['required', 'string', 'min:5', 'max:255'],
+        'salary' => ['required'],
+    ]);
+
+    Vacancy::create([
+        'title' => request()->input('title'),
+        'salary' => request()->input('salary'),
+        'employer_id' => 1
+    ]);
+    return redirect('/vacancies');
+});
+
+Route::get('/vacancies/{id}/edit', function ($id) {
+    $vacancy = Vacancy::find($id);
+    return view('vacancies.edit', ['vacancy' => $vacancy]);
 });
 
 Route::get('/contact', function () {

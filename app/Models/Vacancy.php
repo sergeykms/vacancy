@@ -10,7 +10,7 @@ class Vacancy extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $fillable = ['title', 'salary'];
+    protected $fillable = ['title', 'salary', 'employer_id'];
 
     public function employer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

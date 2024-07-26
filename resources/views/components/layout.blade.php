@@ -19,7 +19,8 @@
                         <x-nav-link href="/" :active="request()->is('/')" type="button">Home</x-nav-link>
                     </li>
                     <li class="nav-item">
-                        <x-nav-link href="/vacancies" :active="request()->is('vacancies')" type="button">Vacancy</x-nav-link>
+                        <x-nav-link href="/vacancies" :active="request()->is('vacancies')" type="button">Vacancy
+                        </x-nav-link>
                     </li>
                     <li class="nav-item">
                         <x-nav-link href="/contact" :active="request()->is('contact')" type="button">Contact
@@ -29,11 +30,11 @@
             </div>
         </div>
     </nav>
-
-    <h1 style="margin: 0; padding: .5rem 0; font-family: var(--navigateFontFamily),sans-serif; color: #06357a">{{ $hedding }}</h1>
-
+    <div style="margin: 0; padding: 1rem; display: flex; flex-direction: row; justify-content: space-between">
+        <h1 style="margin: 0; padding: 0; font-family: var(--navigateFontFamily),sans-serif; color: #06357a">{{ $hedding }}</h1>
+        <x-button href="/vacancies/create" type="link">Добавить вакансию</x-button>
+    </div>
     <hr class="bg-primary" style="margin: 0; padding: 0;">
-
     {{ $slot }}
 
 </div>
