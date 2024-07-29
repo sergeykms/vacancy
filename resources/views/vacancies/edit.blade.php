@@ -4,8 +4,9 @@
     </x-slot:hedding>
     <form class="container mt-4"
           method="POST"
-          action="/vacancies">
+          action="/vacancies/{{ $vacancy->id }}">
         @csrf
+        @method('PATCH')
         <div class="mb-3">
             <label for="title" class="form-label">Наименование вакансии</label>
             <input name="title"
